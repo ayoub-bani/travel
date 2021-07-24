@@ -1,0 +1,30 @@
+{
+  "name": "travel",
+  "version": "1.0.0",
+  "description": "travel website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoub-bani/travel.git"
+  },
+  "author": "ayoub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoub-bani/travel/issues"
+  },
+  "homepage": "https://github.com/ayoub-bani/travel#readme",
+  "dependencies": {
+    "browser-sync": "^2.27.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-image": "^6.2.1",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "node-sass": "^6.0.1"
+  }
+}
