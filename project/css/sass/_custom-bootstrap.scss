@@ -1,0 +1,10 @@
+// Custom.scss
+// Add custom code after this
+
+$theme-colors: (
+    "primary": #11414B,
+    );
+    
+// Option A: Include all of Bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+

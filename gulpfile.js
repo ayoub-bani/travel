@@ -1,11 +1,11 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var autoprefixer = require('gulp-autoprefixer');
-var sass = require('gulp-sass')(require("node-sass"));
-var browserSync = require('browser-sync').create();
-var sourcemaps = require('gulp-sourcemaps');
-var terser = require('gulp-terser');
-var image = require('gulp-image');
+let gulp = require('gulp');
+let concat = require('gulp-concat');
+let autoprefixer = require('gulp-autoprefixer');
+let sass = require('gulp-sass')(require("node-sass"));
+let browserSync = require('browser-sync').create();
+let sourcemaps = require('gulp-sourcemaps');
+let terser = require('gulp-terser');
+let image = require('gulp-image');
 
 // CSS Task
 gulp.task('concat-css', function () {
