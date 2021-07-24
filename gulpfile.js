@@ -48,3 +48,6 @@ gulp.task('watch', function () {
     gulp.watch('dist/*.html').on('change', browserSync.reload);
     gulp.watch('dist/js/*.js').on('change', browserSync.reload);
 });
+
+// Default Gulp task
+gulp.task('default', gulp.series('watch'));
