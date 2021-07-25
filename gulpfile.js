@@ -23,7 +23,7 @@ gulp.task('concat-css', function () {
 
 // Javascript Task
 gulp.task('concat-js', function () {
-    return gulp.src('project/js/*.js')
+    return gulp.src(['./node_modules/@popperjs/core/dist/umd/popper.min.js', './node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', 'project/js/*.js'])
         .pipe(concat('main.js'))
         .pipe(terser())
         .pipe(gulp.dest('dist/js'))

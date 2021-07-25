@@ -1,0 +1,11 @@
+.navbar {
+    .navbar-brand-fonts  {
+        @include open-sans;
+    }
+    
+    ul {
+        li {
+            @include open-sans;
+        }
+    }
+}
