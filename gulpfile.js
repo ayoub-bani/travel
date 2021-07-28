@@ -6,7 +6,14 @@ let browserSync = require('browser-sync').create();
 let sourcemaps = require('gulp-sourcemaps');
 let terser = require('gulp-terser');
 let image = require('gulp-image');
+let cleanCSS = require('gulp-clean-css');
+let urlAdjuster = require('gulp-css-url-adjuster');
+let cssmin = require('gulp-cssmin');
+let rename = require('gulp-rename');
+let replace = require('gulp-replace');
 
+// Local
+var yourDirectory = "/project/images/";
 // CSS Task
 gulp.task('concat-css', function () {
     return gulp.src('project/css/*.scss')
@@ -14,9 +21,16 @@ gulp.task('concat-css', function () {
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
+        // .pipe(cleanCSS({ compatibility: 'ie8' }))
+        // .pipe(urlAdjuster({
+        //     prepend: '../image/',
+        // }))
+        .pipe(cssmin())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('main.css'))
         .pipe(sourcemaps.write('.'))
+        .pipe(replace('../../../images', '../img'))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream())
 })
