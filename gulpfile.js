@@ -5,15 +5,9 @@ let sass = require('gulp-sass')(require("node-sass"));
 let browserSync = require('browser-sync').create();
 let sourcemaps = require('gulp-sourcemaps');
 let terser = require('gulp-terser');
-let image = require('gulp-image');
-let cleanCSS = require('gulp-clean-css');
-let urlAdjuster = require('gulp-css-url-adjuster');
-let cssmin = require('gulp-cssmin');
-let rename = require('gulp-rename');
 let replace = require('gulp-replace');
+var imagemin = require('gulp-imagemin');
 
-// Local
-var yourDirectory = "/project/images/";
 // CSS Task
 gulp.task('concat-css', function () {
     return gulp.src('project/css/*.scss')
@@ -21,16 +15,10 @@ gulp.task('concat-css', function () {
         .pipe(sass({
             outputStyle: 'compressed'
         }).on('error', sass.logError))
-        // .pipe(cleanCSS({ compatibility: 'ie8' }))
-        // .pipe(urlAdjuster({
-        //     prepend: '../image/',
-        // }))
-        .pipe(cssmin())
-        .pipe(rename({ suffix: '.min' }))
+        .pipe(replace('../../../images', '../img'))
         .pipe(autoprefixer('last 2 version'))
         .pipe(concat('main.css'))
         .pipe(sourcemaps.write('.'))
-        .pipe(replace('../../../images', '../img'))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.stream())
 })
@@ -44,8 +32,9 @@ gulp.task('concat-js', function () {
 })
 // Image task
 gulp.task('img', function () {
-    return gulp.src('project/image/*.*')
-        .pipe(image())
+    return gulp.src('project/images/*.*')
+        // .pipe(image())
+        .pipe(imagemin())
         .pipe(gulp.dest('dist/img'))
 })
 
@@ -58,7 +47,7 @@ gulp.task('watch', function () {
     })
     gulp.watch('project/css/**/*.scss', gulp.series('concat-css'));
     gulp.watch('project/js/*.js', gulp.series('concat-js'));
-    gulp.watch('project/image/*.*', gulp.series('img'));
+    gulp.watch('project/images/*.*', gulp.series('img'));
     gulp.watch('dist/*.html').on('change', browserSync.reload);
     gulp.watch('dist/js/*.js').on('change', browserSync.reload);
 });
