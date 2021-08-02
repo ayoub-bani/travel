@@ -1,7 +1,12 @@
 #hero {
+    top: 0;
+    z-index: -1;
     background: url('../../../images/home1.jpg');
+    background-size: cover;
     height: 100vh;
+    width: 100vw;
     span {
+        font-weight: 600;
         @include open-sans;
     }
     .hero-text-styles {

@@ -6,6 +6,10 @@
     ul {
         li {
             @include open-sans;
+            font-weight: 600;
         }
+    }
+    .nav-link {
+        color: white;
     }
 }
