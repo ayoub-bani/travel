@@ -26,4 +26,20 @@
         padding: 10px 30px;
         font-weight: 600;
     }
+    .custom-card {
+        bottom: 3rem;
+        right: 8rem;
+        height: 10rem;
+        width: 22rem;
+        .img-sizing {
+          height: 7rem;
+          width: 10rem;
+        }
+        h5 {
+            @include open-sans;
+            font-weight: 600;
+            width: 75%;
+            line-height: 1.5rem;
+        }
+    }
 }
